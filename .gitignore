@@ -6,7 +6,9 @@
 !/.scripts/**
 
 !/.modaclouds-repositories
+!/.modaclouds-dependencies
 !/.mosaic-repositories
+!/.mosaic-dependencies
 
 *#
 *~
