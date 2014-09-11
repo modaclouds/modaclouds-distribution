@@ -1,0 +1,12 @@
+[submodule "modaclouds-repositories"]
+	path = modaclouds-repositories
+	url = ../modaclouds-distribution-repositories.git
+[submodule "modaclouds-dependencies"]
+	path = modaclouds-dependencies
+	url = ../modaclouds-distribution-dependencies.git
+[submodule "mosaic-repositories"]
+	path = mosaic-repositories
+	url = ../mosaic-distribution-repositories.git
+[submodule "mosaic-dependencies"]
+	path = mosaic-dependencies
+	url = ../mosaic-distribution-dependencies.git
