@@ -12,6 +12,12 @@ env -i "${_git_env[@]}" "${_git_bin}" \
 	path="$( readlink -e "${name}" )"
 	name="$( basename "${name}" )"
 	case "${name}" in
+		( modaclouds-repositories )
+			orig_path="$( readlink -e ../modaclouds-distribution-repositories )"
+		;;
+		( modaclouds-dependencies )
+			orig_path="$( readlink -e ../modaclouds-distribution-dependencies )"
+		;;
 		( mosaic-repositories )
 			orig_path="$( readlink -e ../mosaic-distribution-repositories )"
 		;;
