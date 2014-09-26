@@ -126,20 +126,21 @@ else
 	_TMPDIR="${pallur_TMPDIR}"
 fi
 
-if test -e /etc/arch-release ; then
-	_local_os_identifier=archlinux
-	_local_os_version=rolling
-elif test -e /etc/lsb-release ; then
-	_local_os_identifier="$( . /etc/lsb-release ; echo "${DISTRIB_ID:-}" )"
-	_local_os_version="$( . /etc/lsb-release ; echo "${DISTRIB_RELEASE:-}" )"
+if test -z "${pallur_local_os:-}" ; then
+	if test -e /etc/os-release ; then
+		_local_os_identifier="$( . /etc/os-release ; echo "${ID:-}" )"
+		_local_os_version="$( . /etc/os-release ; echo "${VERSION_ID:-}" )"
+	else
+		_local_os_identifier=
+		_local_os_version=
+	fi
+	_local_os_identifier="${_local_os_identifier,,}"
+	_local_os_version="${_local_os_version,,}"
+	_local_os="${_local_os_identifier:-unknown}::${_local_os_version:-unknown}"
+	echo "[dd] using pallur-local-OS -> \`${_local_os}\`;" >&2
 else
-	_local_os_identifier=
-	_local_os_version=
+	_local_os="${pallur_local_os}"
 fi
-
-_local_os_identifier="${_local_os_identifier,,}"
-_local_os_version="${_local_os_version,,}"
-_local_os="${_local_os_identifier:-unknown}::${_local_os_version:-unknown}"
 
 _do_scripts_env=(
 	
@@ -150,8 +151,6 @@ _do_scripts_env=(
 	pallur_temporary="${_temporary}"
 	pallur_artifacts="${_artifacts}"
 	
-	pallur_local_os_identifier="${_local_os_identifier}"
-	pallur_local_os_version="${_local_os_version}"
 	pallur_local_os="${_local_os}"
 	
 	pallur_pkg_erlang_15="${_tools}/pkg/erlang-15"
@@ -171,10 +170,10 @@ _do_scripts_env=(
 	pallur_PATH="${_PATH_export}"
 	pallur_HOME="${_HOME}"
 	pallur_TMPDIR="${_TMPDIR}"
-	pallur_CFLAGS="-I${_tools}/include"
-	pallur_CXXFLAGS="-I${_tools}/include"
-	pallur_LDFLAGS="-L${_tools}/lib"
-	pallur_LIBS=
+	pallur_CFLAGS="-I${_tools}/include -m32"
+	pallur_CXXFLAGS="-I${_tools}/include -m32"
+	pallur_LDFLAGS="-L${_tools}/lib -m32"
+	pallur_LIBS=''
 	
 	pallur_do_exec="${_scripts}/_do-exec"
 	pallur_do_bash="${_scripts}/_do-bash"
@@ -225,6 +224,8 @@ function _do_exec () {
 		false
 	fi
 	_outcome=0
+	setarch i686 --32bit --3gb -- \
+	nice -n 19 -- \
 	env -i "${_do_scripts_env[@]}" "${@}" </dev/null >"${_do_exec_log}" 2>&1 \
 	|| _outcome="${?}"
 	if test "${_outcome}" -ne 0 ; then
@@ -252,6 +253,8 @@ function _do_bash () {
 		false
 	fi
 	_outcome=0
+	setarch i686 --32bit --3gb \
+	nice -n 19 -- \
 	env -i "${_do_scripts_env[@]}" BASH_ENV="${_scripts}/_env.bash" bash -- "${@}" </dev/null >"${_do_exec_log}" 2>&1 \
 	|| _outcome="${?}"
 	if test "${_outcome}" -ne 0 ; then
@@ -269,6 +272,8 @@ function _do_exec1 () {
 	test "${#}" -ge 1
 	echo "[ii] executing \`${@:1}\`..." >&2
 	_outcome=0
+	setarch i686 --32bit --3gb -- \
+	nice -n 19 -- \
 	env -i "${_do_scripts_env[@]}" "${@}" </dev/null \
 	|| _outcome="${?}"
 	if test "${_outcome}" -ne 0 ; then
@@ -284,6 +289,8 @@ function _do_bash1 () {
 	test "${#}" -ge 1
 	echo "[ii] executing \`${@:1}\`..." >&2
 	_outcome=0
+	setarch i686 --32bit --3gb -- \
+	nice -n 19 -- \
 	env -i "${_do_scripts_env[@]}" BASH_ENV="${_scripts}/_env.bash" bash -- "${@}" </dev/null \
 	|| _outcome="${?}"
 	if test "${_outcome}" -ne 0 ; then

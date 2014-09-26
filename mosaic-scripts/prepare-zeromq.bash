@@ -18,13 +18,18 @@ _repository="${_repositories}/zeromq2"
 
 echo "[ii] preparing..." >&2
 
+if test -e "${_outputs}" ; then
+	rm -R -- "${_outputs}"
+fi
 mkdir -- "${_outputs}"
+
 cd -- "${_repository}"
 find . -not -name '.git' -print0 | cpio -p -0 --quiet -- "${_outputs}"
 chmod -R a=rX,u=rwX -- "${_outputs}"
 cd -- "${_outputs}"
 
 _CFLAGS="${pallur_CFLAGS}"
+_CXXFLAGS="${pallur_CXXFLAGS}"
 _LDFLAGS="${pallur_LDFLAGS}"
 _LIBS="${pallur_LIBS}"
 
@@ -35,6 +40,7 @@ _do_exec \
 
 _do_exec env \
 			CFLAGS="${_CFLAGS}" \
+			CXXFLAGS="${_CXXFLAGS}" \
 			LDFLAGS="${_LDFLAGS}" \
 			LIBS="${_LIBS}" \
 	./configure \
@@ -42,6 +48,7 @@ _do_exec env \
 
 _do_exec env \
 			CFLAGS="${_CFLAGS}" \
+			CXXFLAGS="${_CXXFLAGS}" \
 			LDFLAGS="${_LDFLAGS}" \
 			LIBS="${_LIBS}" \
 	make -j 8

@@ -18,14 +18,29 @@ _repository="${_dependencies}/mozilla-js/1.8.0/src"
 
 echo "[ii] preparing..." >&2
 
+if test -e "${_outputs}" ; then
+	rm -R -- "${_outputs}"
+fi
 mkdir -- "${_outputs}"
+
 cd -- "${_repository}"
 find . -not -name '.git' -print0 | cpio -p -0 --quiet -- "${_outputs}"
 chmod -R a=rX,u=rwX -- "${_outputs}"
 cd -- "${_outputs}"
 
-_CFLAGS="-I${_tools}/pkg/nspr-4.8/include/nspr -include unistd.h -include string.h -w ${pallur_CFLAGS}"
-_CXXFLAGS="-I${_tools}/pkg/nspr-4.8/include/nspr -include unistd.h -include string.h -w ${pallur_CXXFLAGS}"
+case "${_local_os}" in
+	( archlinux::* )
+		_CFLAGS="-I${_tools}/pkg/nspr-4.8/include/nspr -include unistd.h -include string.h -w ${pallur_CFLAGS}"
+		_CXXFLAGS="-I${_tools}/pkg/nspr-4.8/include/nspr -include unistd.h -include string.h -w ${pallur_CXXFLAGS}"
+	;;
+	( opensuse::* )
+		_CFLAGS="-I${_tools}/pkg/nspr-4.8/include/nspr -w ${pallur_CFLAGS}"
+		_CXXFLAGS="-I${_tools}/pkg/nspr-4.8/include/nspr -w ${pallur_CXXFLAGS}"
+	;;
+	( * )
+		false
+	;;
+esac
 _LDFLAGS="-L${_tools}/pkg/nspr-4.8/lib ${pallur_LDFLAGS}"
 _LIBS="${pallur_LIBS}"
 
@@ -42,7 +57,8 @@ _do_exec env \
 			BUILD_OPT=1 \
 			XCFLAGS="-DHAVE_VA_COPY -DVA_COPY=va_copy ${_CFLAGS}" \
 			XCXXFLAGS="-DHAVE_VA_COPY -DVA_COPY=va_copy ${_CXXFLAGS}" \
-			XLDFLAGS="${_LDFLAGS}"
+			XLDFLAGS="${_LDFLAGS}" \
+			CC=gcc LD=gcc
 
 echo "[ii] deploying..." >&2
 

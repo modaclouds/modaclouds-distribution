@@ -18,7 +18,11 @@ _repository="${_repositories}/volution-build-system"
 
 echo "[ii] preparing..." >&2
 
+if test -e "${_outputs}" ; then
+	rm -R -- "${_outputs}"
+fi
 mkdir -- "${_outputs}"
+
 cd -- "${_repository}"
 find . -not -name '.git' -print0 | cpio -p -0 --quiet -- "${_outputs}"
 chmod -R a=rX,u=rwX -- "${_outputs}"
@@ -32,11 +36,14 @@ _do_exec \
 _do_exec \
 	./scripts/make-chicken.bash
 
+_do_exec \
+	./scripts/make.bash
+
+echo "[ii] deploying..." >&2
+
 _do_exec env \
 			vbs_mk_vbs_target="${_outputs}/vbs.elf" \
 	./scripts/make.bash vbs_deploy
-
-echo "[ii] deploying..." >&2
 
 mkdir -- "${_tools}/pkg/vbs"
 mkdir -- "${_tools}/pkg/vbs/bin"
@@ -49,6 +56,7 @@ chmod -R a=rX -- "${_tools}/pkg/vbs"
 
 echo "[ii] cleaning..." >&2
 
+rm -R -- "${_TMPDIR}/volution-build-system"
 rm -R -- "${_outputs}"
 
 exit 0
