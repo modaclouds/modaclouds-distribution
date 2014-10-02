@@ -31,7 +31,8 @@ modaclouds-distribution@components@${_task} : \
 		mosaic-components-couchdb@${_task} \
 		mosaic-components-rabbitmq@${_task} \
 		mosaic-components-mysql@${_task} \
-		mosaic-components-me2cp@${_task}
+		mosaic-components-me2cp@${_task} \
+		mosaic-object-store@${_task}
 
 modaclouds-distribution@services@${_task} :
 

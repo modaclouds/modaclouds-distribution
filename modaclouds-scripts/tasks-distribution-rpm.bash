@@ -36,7 +36,8 @@ modaclouds-distribution@components-rpm@${_task} : \
 		mosaic-components-couchdb-rpm@${_task} \
 		mosaic-components-rabbitmq-rpm@${_task} \
 		mosaic-components-mysql-rpm@${_task} \
-		mosaic-components-me2cp-rpm@${_task}
+		mosaic-components-me2cp-rpm@${_task} \
+		mosaic-object-store-rpm@${_task}
 
 modaclouds-distribution@services-rpm@${_task} : \
 		modaclouds-services-knowledgebase-rpm@${_task} \
