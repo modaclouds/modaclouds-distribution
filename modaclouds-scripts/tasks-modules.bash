@@ -11,6 +11,8 @@ _modules=(
 		modaclouds-components-monitoring-dda
 		modaclouds-components-monitoring-sda-matlab
 		modaclouds-components-monitoring-sda-weka
+		modaclouds-components-metric-explorer
+		modaclouds-components-metric-importer
 		modaclouds-mos-platform-packages
 )
 

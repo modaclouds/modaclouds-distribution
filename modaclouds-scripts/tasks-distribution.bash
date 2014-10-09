@@ -28,8 +28,11 @@ modaclouds-distribution@components@${_task} : \
 		modaclouds-components-monitoring-dda@${_task} \
 		modaclouds-components-monitoring-sda-matlab@${_task} \
 		modaclouds-components-monitoring-sda-weka@${_task} \
+		modaclouds-components-metric-explorer@${_task} \
+		modaclouds-components-metric-importer@${_task} \
 		mosaic-components-couchdb@${_task} \
 		mosaic-components-rabbitmq@${_task} \
+		mosaic-components-riak-kv@${_task} \
 		mosaic-components-mysql@${_task} \
 		mosaic-components-me2cp@${_task} \
 		mosaic-object-store@${_task}

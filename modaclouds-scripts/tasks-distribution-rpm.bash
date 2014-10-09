@@ -33,8 +33,11 @@ modaclouds-distribution@components-rpm@${_task} : \
 		modaclouds-components-monitoring-dda-rpm@${_task} \
 		modaclouds-components-monitoring-sda-matlab-rpm@${_task} \
 		modaclouds-components-monitoring-sda-weka-rpm@${_task} \
+		modaclouds-components-metric-explorer-rpm@${_task} \
+		modaclouds-components-metric-importer-rpm@${_task} \
 		mosaic-components-couchdb-rpm@${_task} \
 		mosaic-components-rabbitmq-rpm@${_task} \
+		mosaic-components-riak-kv-rpm@${_task} \
 		mosaic-components-mysql-rpm@${_task} \
 		mosaic-components-me2cp-rpm@${_task} \
 		mosaic-object-store-rpm@${_task}
@@ -44,7 +47,9 @@ modaclouds-distribution@services-rpm@${_task} : \
 		modaclouds-services-monitoring-manager-rpm@${_task} \
 		modaclouds-services-monitoring-dda-rpm@${_task} \
 		modaclouds-services-monitoring-sda-matlab-rpm@${_task} \
-		modaclouds-services-monitoring-sda-weka-rpm@${_task}
+		modaclouds-services-monitoring-sda-weka-rpm@${_task} \
+		modaclouds-services-metric-explorer-rpm@${_task} \
+		modaclouds-services-metric-importer-rpm@${_task}
 
 EOS
 done
