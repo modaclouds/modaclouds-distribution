@@ -6,13 +6,17 @@ if ! test "${#}" -eq 0 ; then
 fi
 
 _modules=(
-		modaclouds-components-knowledgebase
-		modaclouds-components-monitoring-manager
-		modaclouds-components-monitoring-dda
-		modaclouds-components-monitoring-sda-matlab
-		modaclouds-components-monitoring-sda-weka
-		modaclouds-components-metric-explorer
-		modaclouds-components-metric-importer
+		
+		modaclouds-components-platform-wrappers/modaclouds-components-knowledgebase
+		
+		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-manager
+		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-dda
+		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-sda-matlab
+		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-sda-weka
+		
+		modaclouds-components-platform-wrappers/modaclouds-components-metric-explorer
+		modaclouds-components-platform-wrappers/modaclouds-components-metric-importer
+		
 		modaclouds-mos-platform-packages
 )
 
