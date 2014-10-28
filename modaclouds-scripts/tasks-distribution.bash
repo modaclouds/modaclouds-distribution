@@ -28,6 +28,8 @@ modaclouds-distribution@components@${_task} : \
 		modaclouds-components-monitoring-dda@${_task} \
 		modaclouds-components-monitoring-sda-matlab@${_task} \
 		modaclouds-components-monitoring-sda-weka@${_task} \
+		modaclouds-components-load-balancer-controller@${_task} \
+		modaclouds-components-load-balancer-reasoner@${_task} \
 		modaclouds-components-metric-explorer@${_task} \
 		modaclouds-components-metric-importer@${_task} \
 		mosaic-components-couchdb@${_task} \

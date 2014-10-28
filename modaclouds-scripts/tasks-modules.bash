@@ -14,6 +14,9 @@ _modules=(
 		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-sda-matlab
 		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-sda-weka
 		
+		modaclouds-components-platform-wrappers/modaclouds-components-load-balancer-controller
+		modaclouds-components-platform-wrappers/modaclouds-components-load-balancer-reasoner
+		
 		modaclouds-components-platform-wrappers/modaclouds-components-metric-explorer
 		modaclouds-components-platform-wrappers/modaclouds-components-metric-importer
 		
