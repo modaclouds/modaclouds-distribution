@@ -15,13 +15,7 @@ modaclouds-distribution@all-rpm@${_task} : \
 		modaclouds-distribution@node-rpm@${_task} \
 		modaclouds-distribution@components-rpm@${_task} \
 		modaclouds-distribution@services-rpm@${_task} \
-		modaclouds-distribution@platform-core-rpm@${_task} \
-
-modaclouds-distribution@platform-core-rpm@${_task} : \
-		modaclouds-platform-core-rpm@${_task} \
-		modaclouds-distribution@node-rpm@${_task} \
-		modaclouds-distribution@components-rpm@${_task} \
-		modaclouds-distribution@services-rpm@${_task}
+		modaclouds-distribution@tools-rpm@${_task} \
 
 modaclouds-distribution@node-rpm@${_task} : \
 		mosaic-node-rpm@${_task} \
@@ -42,7 +36,7 @@ modaclouds-distribution@components-rpm@${_task} : \
 		mosaic-components-riak-kv-rpm@${_task} \
 		mosaic-components-mysql-rpm@${_task} \
 		mosaic-components-me2cp-rpm@${_task} \
-		mosaic-object-store-rpm@${_task}
+		mosaic-object-store-rpm@${_task} \
 
 modaclouds-distribution@services-rpm@${_task} : \
 		modaclouds-services-knowledgebase-rpm@${_task} \
@@ -53,7 +47,18 @@ modaclouds-distribution@services-rpm@${_task} : \
 		modaclouds-services-load-balancer-controller-rpm@${_task} \
 		modaclouds-services-load-balancer-reasoner-rpm@${_task} \
 		modaclouds-services-metric-explorer-rpm@${_task} \
-		modaclouds-services-metric-importer-rpm@${_task}
+		modaclouds-services-metric-importer-rpm@${_task} \
+		modaclouds-services-models-at-runtime-rpm@${_task} \
+		modaclouds-services-sla-core-rpm@${_task} \
+		modaclouds-services-fg-analyzer-rpm@${_task} \
+		modaclouds-services-fg-local-db-rpm@${_task} \
+
+modaclouds-distribution@tools-rpm@${_task} : \
+		modaclouds-tools-mdload-rpm@${_task} \
+
+modaclouds-rpm@${_task} : \
+		modaclouds-distribution@services-rpm@${_task} \
+		modaclouds-distribution@tools-rpm@${_task} \
 
 EOS
 done

@@ -15,12 +15,12 @@ modaclouds-distribution@all@${_task} : \
 		modaclouds-distribution@node@${_task} \
 		modaclouds-distribution@components@${_task} \
 		modaclouds-distribution@services@${_task} \
-		modaclouds-distribution@platform-core@${_task}
+		modaclouds-distribution@tools@${_task} \
 
 modaclouds-distribution@node@${_task} : \
 		mosaic-node@${_task} \
 		mosaic-node-wui@${_task} \
-		mosaic-node-boot@${_task}
+		mosaic-node-boot@${_task} \
 
 modaclouds-distribution@components@${_task} : \
 		modaclouds-components-knowledgebase@${_task} \
@@ -37,14 +37,11 @@ modaclouds-distribution@components@${_task} : \
 		mosaic-components-riak-kv@${_task} \
 		mosaic-components-mysql@${_task} \
 		mosaic-components-me2cp@${_task} \
-		mosaic-object-store@${_task}
+		mosaic-object-store@${_task} \
 
 modaclouds-distribution@services@${_task} :
 
-modaclouds-distribution@platform-core@${_task} : \
-		modaclouds-distribution@node@${_task} \
-		modaclouds-distribution@components@${_task} \
-		modaclouds-distribution@services@${_task}
+modaclouds-distribution@tools@${_task} :
 
 EOS
 done
