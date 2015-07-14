@@ -7,7 +7,7 @@ fi
 
 _modules=(
 		
-		modaclouds-components-platform-wrappers/modaclouds-components-knowledgebase
+		modaclouds-components-platform-wrappers/modaclouds-components-fuseki
 		
 		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-manager
 		modaclouds-components-platform-wrappers/modaclouds-components-monitoring-dda

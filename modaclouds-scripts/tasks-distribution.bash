@@ -23,7 +23,7 @@ modaclouds-distribution@node@${_task} : \
 		mosaic-node-boot@${_task} \
 
 modaclouds-distribution@components@${_task} : \
-		modaclouds-components-knowledgebase@${_task} \
+		modaclouds-components-fuseki@${_task} \
 		modaclouds-components-monitoring-manager@${_task} \
 		modaclouds-components-monitoring-dda@${_task} \
 		modaclouds-components-monitoring-sda-matlab@${_task} \

@@ -22,7 +22,7 @@ modaclouds-distribution@node-rpm@${_task} : \
 		mosaic-node-wui-rpm@${_task} \
 
 modaclouds-distribution@components-rpm@${_task} : \
-		modaclouds-components-knowledgebase-rpm@${_task} \
+		modaclouds-components-fuseki-rpm@${_task} \
 		modaclouds-components-monitoring-manager-rpm@${_task} \
 		modaclouds-components-monitoring-dda-rpm@${_task} \
 		modaclouds-components-monitoring-sda-matlab-rpm@${_task} \
@@ -39,7 +39,7 @@ modaclouds-distribution@components-rpm@${_task} : \
 		mosaic-object-store-rpm@${_task} \
 
 modaclouds-distribution@services-rpm@${_task} : \
-		modaclouds-services-knowledgebase-rpm@${_task} \
+		modaclouds-services-fuseki-rpm@${_task} \
 		modaclouds-services-monitoring-manager-rpm@${_task} \
 		modaclouds-services-monitoring-dda-rpm@${_task} \
 		modaclouds-services-monitoring-sda-matlab-rpm@${_task} \
