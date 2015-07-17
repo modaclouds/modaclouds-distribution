@@ -23,20 +23,22 @@ modaclouds-distribution@node@${_task} : \
 		mosaic-node-boot@${_task} \
 
 modaclouds-distribution@components@${_task} : \
+		modaclouds-components-fg-analyzer@${_task} \
+		modaclouds-components-fg-local-db@${_task} \
 		modaclouds-components-fuseki@${_task} \
-		modaclouds-components-monitoring-manager@${_task} \
-		modaclouds-components-monitoring-dda@${_task} \
-		modaclouds-components-monitoring-sda-matlab@${_task} \
-		modaclouds-components-monitoring-sda-weka@${_task} \
 		modaclouds-components-load-balancer-controller@${_task} \
 		modaclouds-components-load-balancer-reasoner@${_task} \
 		modaclouds-components-metric-explorer@${_task} \
 		modaclouds-components-metric-importer@${_task} \
-		mosaic-components-couchdb@${_task} \
-		mosaic-components-rabbitmq@${_task} \
-		mosaic-components-riak-kv@${_task} \
+		modaclouds-components-models-at-runtime@${_task} \
+		modaclouds-components-monitoring-dda@${_task} \
+		modaclouds-components-monitoring-history-db@${_task} \
+		modaclouds-components-monitoring-manager@${_task} \
+		modaclouds-components-monitoring-sda-matlab@${_task} \
+		modaclouds-components-monitoring-sda-weka@${_task} \
+		modaclouds-components-sla-core@${_task} \
 		mosaic-components-mysql@${_task} \
-		mosaic-components-me2cp@${_task} \
+		mosaic-components-rabbitmq@${_task} \
 		mosaic-object-store@${_task} \
 
 modaclouds-distribution@services@${_task} :
