@@ -18,6 +18,7 @@ modaclouds-distribution@all-rpm@${_task} : \
 		modaclouds-distribution@tools-rpm@${_task} \
 
 modaclouds-distribution@node-rpm@${_task} : \
+		modaclouds-platform-core-rpm@${_task} \
 		mosaic-node-rpm@${_task} \
 		mosaic-node-wui-rpm@${_task} \
 
