@@ -52,6 +52,9 @@ modaclouds-distribution@services-rpm@${_task} : \
 		modaclouds-services-metric-explorer-rpm@${_task} \
 		modaclouds-services-metric-importer-rpm@${_task} \
 		modaclouds-services-models-at-runtime-rpm@${_task} \
+		modaclouds-services-monitoring-dda-rpm@${_task} \
+		modaclouds-services-monitoring-history-db-rpm@${_task} \
+		modaclouds-services-monitoring-manager-rpm@${_task} \
 		modaclouds-services-monitoring-sda-matlab-rpm@${_task} \
 		modaclouds-services-monitoring-sda-weka-rpm@${_task} \
 		modaclouds-services-sla-core-rpm@${_task} \
